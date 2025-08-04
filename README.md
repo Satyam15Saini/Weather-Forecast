@@ -1,5 +1,5 @@
 # 🌦️ Weather Forecast App
-A responsive web app to check live weather and 5-day forecasts for cities worldwide, with a focus on Indian cities.
+A responsive web app to check live weather and 5-day forecasts for cities worldwide.
 
 # 🔧 Features
 - Search by city or current location
