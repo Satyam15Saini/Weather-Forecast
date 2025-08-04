@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast - Global Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="app-title">
+                        <span class="weather-icon">🌤️</span>
+                        Weather Forecast
+                    </h1>
+                    <div class="search-section">
+                        <div class="search-container">
+                            <input 
+                                type="text" 
+                                id="citySearch" 
+                                class="search-input" 
+                                placeholder="Search for a city..."
+                                autocomplete="off"
+                            >
+                            <button id="searchBtn" class="search-btn">
+                                <span class="search-icon">🔍</span>
+                            </button>
+                        </div>
+                        <button id="locationBtn" class="location-btn">
+                            <span class="location-icon">📍</span>
+                            Current Location
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Loading State -->
+                <div id="loadingState" class="loading-state hidden">
+                    <div class="spinner"></div>
+                    <p>Loading weather data...</p>
+                </div>
+
+                <!-- Error State -->
+                <div id="errorState" class="error-state hidden">
+                    <div class="error-icon">⚠️</div>
+                    <h3>Oops! Something went wrong</h3>
+                    <p id="errorMessage">Unable to fetch weather data</p>
+                    <button id="retryBtn" class="btn btn--primary">Try Again</button>
+                </div>
+
+                <!-- Weather Content -->
+                <div id="weatherContent" class="weather-content hidden">
+                    <!-- Current Weather Card -->
+                    <div class="current-weather-card">
+                        <div class="weather-header">
+                            <div class="location-info">
+                                <h2 id="locationName">Loading...</h2>
+                                <p id="locationCountry">Loading...</p>
+                            </div>
+                            <div class="weather-icon-large">
+                                <span id="weatherIcon" class="weather-emoji">🌤️</span>
+                            </div>
+                        </div>
+
+                        <div class="weather-main">
+                            <div class="temperature">
+                                <span id="currentTemp">--</span>
+                                <span class="temp-unit">°C</span>
+                            </div>
+                            <p id="weatherDescription" class="weather-desc">Loading...</p>
+                        </div>
+
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💧</span>
+                                <div class="detail-info">
+                                    <span class="detail-label">Humidity</span>
+                                    <span id="humidity" class="detail-value">--%</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💨</span>
+                                <div class="detail-info">
+                                    <span class="detail-label">Wind Speed</span>
+                                    <span id="windSpeed" class="detail-value">-- km/h</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📊</span>
+                                <div class="detail-info">
+                                    <span class="detail-label">Pressure</span>
+                                    <span id="pressure" class="detail-value">-- hPa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forecast Section -->
+                    <div class="forecast-section">
+                        <h3 class="section-title">5-Day Forecast</h3>
+                        <div id="forecastContainer" class="forecast-container"></div>
+                    </div>
+                </div>
+
+                <!-- Popular Cities -->
+                <div class="popular-cities-section">
+                    <h3 class="section-title">Popular Indian Cities</h3>
+                    <div id="citiesGrid" class="cities-grid"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p class="footer-text">
+                    Weather data provided by <a href="https://openweathermap.org" target="_blank">OpenWeatherMap</a>
+                </p>
+
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
